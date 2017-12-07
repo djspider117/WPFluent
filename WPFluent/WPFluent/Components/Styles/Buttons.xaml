@@ -123,19 +123,19 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ToggleButtonBorderBrushPressed}"/>
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource ToggleButtonForegroundPressed}" />
                         </Trigger>
-                        
+
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource ToggleButtonBackgroundDisabled}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ToggleButtonBorderBrushDisabled}"/>
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource ToggleButtonForegroundDisabled}"/>
                         </Trigger>
-                        
+
                         <Trigger Property="IsChecked" Value="true">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource ToggleButtonBackgroundChecked}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ToggleButtonBorderBrushChecked}"/>
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource ToggleButtonForegroundChecked}"/>
                         </Trigger>
-                        
+
                         <MultiTrigger x:Name="CheckedPointerOver">
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="true"/>
@@ -168,6 +168,135 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ToggleButtonBorderBrushCheckedDisabled}"/>
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource ToggleButtonForegroundCheckedDisabled}"/>
                         </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToggleSwitchStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource ToggleSwitchContentForeground}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+        <Setter Property="MinWidth" Value="154"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Background="{TemplateBinding Background}" 
+                              BorderThickness="{TemplateBinding BorderThickness}" 
+                              BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition MaxWidth="12" Width="12"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid x:Name="SwitchAreaGrid" Background="{StaticResource ToggleSwitchContainerBackground}" Grid.ColumnSpan="3" Margin="0,5" Grid.RowSpan="3" Grid.Row="1"/>
+
+                            <ContentPresenter x:Name="contentPresenter" Grid.Column="2" Grid.RowSpan="3" Grid.Row="1"
+                                                  Focusable="False" 
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Margin="{TemplateBinding Padding}" 
+                                                  TextElement.Foreground="{TemplateBinding Foreground}"
+                                                  RecognizesAccessKey="True" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                            <Rectangle x:Name="OuterBorder" Fill="{StaticResource ToggleSwitchFillOff}" Height="20" RadiusX="10" RadiusY="10" Grid.Row="2" StrokeThickness="2" Stroke="{StaticResource ToggleSwitchStrokeOff}" Width="44"/>
+                            <Rectangle x:Name="SwitchKnobBounds" Fill="{StaticResource ToggleSwitchFillOn}" Height="20" Opacity="0" RadiusX="10" RadiusY="10" Grid.Row="2" StrokeThickness="{StaticResource ToggleSwitchOnStrokeThickness}" Stroke="{StaticResource ToggleSwitchStrokeOn}" Width="44"/>
+                            <Grid x:Name="SwitchKnob" HorizontalAlignment="Left" Height="20" Grid.Row="2" Width="20">
+                                <Grid.RenderTransform>
+                                    <TranslateTransform x:Name="KnobTranslateTransform"/>
+                                </Grid.RenderTransform>
+                                <Ellipse x:Name="SwitchKnobOn" Fill="{StaticResource ToggleSwitchKnobFillOn}" Height="10" Opacity="0" Width="10"/>
+                                <Ellipse x:Name="SwitchKnobOff" Fill="{StaticResource ToggleSwitchKnobFillOff}" Height="10" Width="10"/>
+                            </Grid>
+                            <Thumb x:Name="SwitchThumb" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="1">
+                                <Thumb.Template>
+                                    <ControlTemplate TargetType="Thumb">
+                                        <Rectangle Fill="Transparent"/>
+                                    </ControlTemplate>
+                                </Thumb.Template>
+                            </Thumb>
+
+                            <Rectangle Fill="#01FFFFFF" Grid.RowSpan="100" Grid.ColumnSpan="100" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="OuterBorder" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOffPointerOver}"/>
+                            <Setter TargetName="OuterBorder" Property="Fill" Value="{StaticResource ToggleSwitchFillOffPointerOver}"/>
+                            <Setter TargetName="SwitchKnobOff" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOffPointerOver}"/>
+                            <Setter TargetName="SwitchKnobOn" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOnPointerOver}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Fill" Value="{StaticResource ToggleSwitchFillOnPointerOver}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOnPointerOver}"/>
+                            <Setter TargetName="SwitchAreaGrid" Property="Background" Value="{StaticResource ToggleSwitchContainerBackgroundPointerOver}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="OuterBorder" Property="StrokeThickness" Value="0"/>
+                            <Setter TargetName="OuterBorder" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOffPressed}"/>
+                            <Setter TargetName="OuterBorder" Property="Fill" Value="{StaticResource ToggleSwitchFillOffPressed}"/>
+                            <Setter TargetName="SwitchKnobOff" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOffPressed}"/>
+                            <Setter TargetName="SwitchKnobOn" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOnPressed}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Fill" Value="{StaticResource ToggleSwitchFillOnPressed}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOnPressed}"/>
+                            <Setter TargetName="SwitchAreaGrid" Property="Background" Value="{StaticResource ToggleSwitchContainerBackgroundPressed}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="SwitchKnobBounds" Property="Opacity" Value="1"/>
+                            <Setter TargetName="OuterBorder" Property="Opacity" Value="0"/>
+                            <Setter TargetName="SwitchKnobOn" Property="Opacity" Value="1"/>
+                            <Setter TargetName="SwitchKnobOff" Property="Opacity" Value="0"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="OuterBorder" Property="StrokeThickness" Value="0"/>
+                            <Setter TargetName="OuterBorder" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOffDisabled}"/>
+                            <Setter TargetName="OuterBorder" Property="Fill" Value="{StaticResource ToggleSwitchFillOffDisabled}"/>
+                            <Setter TargetName="SwitchKnobOff" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOffDisabled}"/>
+                            <Setter TargetName="SwitchKnobOn" Property="Fill" Value="{StaticResource ToggleSwitchKnobFillOnDisabled}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Fill" Value="{StaticResource ToggleSwitchFillOnDisabled}"/>
+                            <Setter TargetName="SwitchKnobBounds" Property="Stroke" Value="{StaticResource ToggleSwitchStrokeOnDisabled}"/>
+                            <Setter TargetName="SwitchAreaGrid" Property="Background" Value="{StaticResource ToggleSwitchContainerBackgroundDisabled}"/>
+                        </Trigger>
+
+                        <EventTrigger RoutedEvent="Checked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="KnobTranslateTransform" Storyboard.TargetProperty="X" To="24" Duration="00:00:00.1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="KnobTranslateTransform" Storyboard.TargetProperty="X" To="0" Duration="00:00:00.1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
