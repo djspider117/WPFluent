@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFluent.Demo", "WPFluent.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFluent", "WPFluent\WPFluent.csproj", "{C05D6633-D988-42AE-8C88-A4FE7A385F0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFluent.UWPLab", "WPFluent.UWPLab\WPFluent.UWPLab.csproj", "{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,26 @@ Global
 		{C05D6633-D988-42AE-8C88-A4FE7A385F0F}.Release|x64.Build.0 = Release|Any CPU
 		{C05D6633-D988-42AE-8C88-A4FE7A385F0F}.Release|x86.ActiveCfg = Release|Any CPU
 		{C05D6633-D988-42AE-8C88-A4FE7A385F0F}.Release|x86.Build.0 = Release|Any CPU
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|ARM.Build.0 = Debug|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x64.ActiveCfg = Debug|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x64.Build.0 = Debug|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x64.Deploy.0 = Debug|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x86.ActiveCfg = Debug|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x86.Build.0 = Debug|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Debug|x86.Deploy.0 = Debug|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|Any CPU.ActiveCfg = Release|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|ARM.ActiveCfg = Release|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|ARM.Build.0 = Release|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|ARM.Deploy.0 = Release|ARM
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x64.ActiveCfg = Release|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x64.Build.0 = Release|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x64.Deploy.0 = Release|x64
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x86.ActiveCfg = Release|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x86.Build.0 = Release|x86
+		{B53A9493-CFA3-4B4B-98E2-0356AB8822C5}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

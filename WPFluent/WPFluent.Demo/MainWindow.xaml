@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TabControl>
+        <TabControl Margin="0,20,0,0">
             <TabItem Header="General">
                 <Grid Margin="10">
                     <StackPanel Orientation="Vertical"  Width="200">
@@ -15,11 +15,25 @@
                         <ToggleButton Content="A toggle button" Margin="0,10,0,0"/>
                         <ToggleButton Content="A toggle switch (toggle button base)" Margin="0,10,0,0"/>
                         <CheckBox Content="Checkbox" Margin="0,10,0,0"/>
-                        <RadioButton Content="RadioButton1" Margin="0,10,0,0"/>
-                        <RadioButton Content="RadioButton2" Margin="0,0,0,0"/>
+                        <GroupBox Header="RadioStuff" Margin="0,10">
+                            <Grid Margin="10">
+                                <RadioButton Content="RadioButton1" Margin="0,10,0,0"/>
+                                <RadioButton Content="RadioButton2" Margin="0,0,0,0"/>
+                            </Grid>
+                        </GroupBox>
+
                         <Slider Margin="0,10,0,0"/>
                         <ProgressBar Height="5" Margin="0,10,0,0" Value="26"/>
+                        <ProgressBar Height="5" Margin="0,10,0,0" IsIndeterminate="True"/>
 
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Text">
+                <Grid Margin="10">
+                    <StackPanel Orientation="Vertical">
+                        <TextBox Text="Some Text"/>
+                        <PasswordBox Password="password" Margin="0,10"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -56,6 +70,45 @@
                         <Rectangle Width="2000" Height="1580" />
                     </ScrollViewer>
                 </Grid>
+            </TabItem>
+            <TabItem Header="TreeView">
+                <TreeView>
+                    <TreeViewItem Header="Hello" />
+                    <TreeViewItem Header="Hello">
+                        <TreeViewItem Header="Hello" />
+                        <TreeViewItem Header="Hello">
+                            <TreeViewItem Header="Hello" />
+                            <TreeViewItem Header="Hello" />
+                            <TreeViewItem Header="Hello">
+                                <TreeViewItem Header="It'S ME" />
+                                <TreeViewItem Header="It'S ME" />
+                                <TreeViewItem Header="It'S ME" />
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Hello" />
+                </TreeView>
+            </TabItem>
+            <TabItem Header="Menus">
+                <DockPanel>
+                    <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="_File">
+                            <MenuItem Header="_New" />
+                            <MenuItem Header="_Open" />
+                            <MenuItem Header="_Save" />
+                            <Separator />
+                            <MenuItem Header="_Exit" />
+                        </MenuItem>
+                        <MenuItem Header="_File">
+                            <MenuItem Header="_New" />
+                            <MenuItem Header="_Open" />
+                            <MenuItem Header="_Save" />
+                            <Separator />
+                            <MenuItem Header="_Exit" />
+                        </MenuItem>
+                    </Menu>
+                    <TextBox AcceptsReturn="True" />
+                </DockPanel>
             </TabItem>
         </TabControl>
     </Grid>
