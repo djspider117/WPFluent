@@ -71,8 +71,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\Controls\" />
-    <Folder Include="Components\Styles\" />
     <Folder Include="Components\Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
