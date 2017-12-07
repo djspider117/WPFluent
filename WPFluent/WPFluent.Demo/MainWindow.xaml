@@ -19,8 +19,10 @@
             <TabItem Header="General">
                 <Grid Margin="10">
                     <StackPanel Orientation="Vertical"  Width="200">
-                        <Button Content="Default Button" FontSize="10"/>
-                        <ToggleButton Content="A toggle button" Margin="0,10,0,0" FontWeight="ExtraLight"/>
+                        <Button Content="Default Button"/>
+                        
+                        <ToggleButton Content="A toggle button" Margin="0,10,0,0" />
+                        
                         <ToggleButton Content="A toggle switch (toggle button base)" Margin="0,10,0,0"/>
                         <CheckBox Content="Checkbox" Margin="0,10,0,0"/>
                         <GroupBox Header="RadioStuff" Margin="0,10">
