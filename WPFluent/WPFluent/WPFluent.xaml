@@ -3,5 +3,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Components/Styles/Buttons.xaml" />
         <ResourceDictionary Source="Components/Styles/Acrylic.xaml" />
+        <ResourceDictionary Source="Components/Styles/ListView.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
