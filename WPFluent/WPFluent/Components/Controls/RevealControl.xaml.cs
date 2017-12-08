@@ -42,30 +42,30 @@ namespace WPFluent.Components.Controls
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
             _hasEntered = true;
-            rt.Opacity = 1;
-            rb.Opacity = 1;
-            mainLight.Opacity = 1;
+            //rt.Opacity = 1;
+            //rb.Opacity = 1;
+            //mainLight.Opacity = 1;
         }
 
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
         {
             _hasEntered = false;
-            rt.Opacity = 0;
-            rb.Opacity = 0;
-            mainLight.Opacity = 0;
+            //rt.Opacity = 0;
+            //rb.Opacity = 0;
+            //mainLight.Opacity = 0;
 
         }
 
         private void Move(MouseEventArgs e)
         {
-            if (!_hasEntered)
-                return;
+            //if (!_hasEntered)
+                //return;
 
             var pos = e.GetPosition(this);
 
-            mainLightTransform.X = pos.X - Width / 2;
-            rtTrans.X = pos.X - Width / 2;
-            rbTrans.X = pos.X - Width / 2;
+            maskTransform.X = (pos.X - Width / 2) / Width;
+            maskTransform.Y = (pos.Y - Height / 2) / Height;
+
         }
     }
 }

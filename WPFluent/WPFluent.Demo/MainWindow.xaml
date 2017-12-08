@@ -26,7 +26,8 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <controls:RevealControl Width="200" Height="33" VerticalAlignment="Top" Margin="10"/>
+                    <controls:RevealControl Width="200" Height="33" VerticalAlignment="Top" Margin="10">
+                    </controls:RevealControl>
 
                     <ListView ItemContainerStyle="{StaticResource RevealListViewItemStyle}" Margin="10,50,0,0">
                         <ListViewItem Foreground="White">List View Item 1</ListViewItem>

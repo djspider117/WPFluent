@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:WPFluent.Components.Controls"
                     xmlns:local="clr-namespace:WPFluent.Components.Styles">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Generic.xaml" />
@@ -139,43 +140,12 @@
                             Padding="{TemplateBinding Padding}" 
                             SnapsToDevicePixels="true">
                         <Grid>
-                            <Rectangle Name="rt" Height="1" VerticalAlignment="Top" Opacity="0">
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                        <GradientStop Offset="0.815"/>
-                                        <GradientStop/>
-                                        <GradientStop Color="#7FFFFFFF" Offset="0.526"/>
-                                        <GradientStop Offset="0.293"/>
-                                        <GradientStop Color="Transparent" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
-
-                            <!--<Rectangle>
-                                <Rectangle.Fill>
-                                    <RadialGradientBrush>
-                                        <GradientStop Offset="0.775"/>
-                                        <GradientStop Color="#3DFFFFFF" Offset="0.261"/>
-                                        <GradientStop Color="#55FFFFFF"/>
-                                    </RadialGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>-->
 
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
-                            <Rectangle Name="rb" Height="1" VerticalAlignment="Bottom" Opacity="0">
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                        <GradientStop Offset="0.815"/>
-                                        <GradientStop/>
-                                        <GradientStop Color="#7FFFFFFF" Offset="0.526"/>
-                                        <GradientStop Offset="0.293"/>
-                                        <GradientStop Color="Transparent" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
+                            <controls:RevealControl x:Name="rv" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0"/>
 
                         </Grid>
                     </Border>
@@ -189,16 +159,14 @@
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="rt" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.3" />
-                                        <DoubleAnimation Storyboard.TargetName="rb" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.3" />
+                                        <DoubleAnimation Storyboard.TargetName="rv" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.3" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </MultiTrigger.EnterActions>
                             <MultiTrigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="rt" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3" />
-                                        <DoubleAnimation Storyboard.TargetName="rb" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3" />
+                                        <DoubleAnimation Storyboard.TargetName="rv" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </MultiTrigger.ExitActions>
