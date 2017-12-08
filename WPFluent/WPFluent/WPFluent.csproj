@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Controls\AcrylicContainer.cs" />
+    <Compile Include="Components\Controls\RevealControl.xaml.cs">
+      <DependentUpon>RevealControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\Helpers\ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -87,6 +90,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Components\Controls\RevealControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\Styles\Acrylic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

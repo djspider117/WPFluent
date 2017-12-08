@@ -20,17 +20,19 @@
     <Grid>
         <TabControl Margin="0,20,0,0">
             <TabItem Header="Collections">
-                <Grid Margin="10" Background="DarkGray">
+                <Grid Margin="10" Background="#FF222222">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <ListView ItemContainerStyle="{StaticResource RevealListViewItemStyle}">
-                        <ListViewItem>List View Item 1</ListViewItem>
-                        <ListViewItem>List View Item 2</ListViewItem>
-                        <ListViewItem>List View Item 3</ListViewItem>
-                        <ListViewItem>List View Item 4</ListViewItem>
+                    <controls:RevealControl Width="200" Height="33" VerticalAlignment="Top" Margin="10"/>
+
+                    <ListView ItemContainerStyle="{StaticResource RevealListViewItemStyle}" Margin="10,50,0,0">
+                        <ListViewItem Foreground="White">List View Item 1</ListViewItem>
+                        <ListViewItem Foreground="White">List View Item 2</ListViewItem>
+                        <ListViewItem Foreground="White">List View Item 3</ListViewItem>
+                        <ListViewItem Foreground="White">List View Item 4</ListViewItem>
                     </ListView>
 
                     <ComboBox Grid.Column="1" VerticalAlignment="Top">

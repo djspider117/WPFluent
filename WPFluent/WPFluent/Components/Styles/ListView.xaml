@@ -139,7 +139,7 @@
                             Padding="{TemplateBinding Padding}" 
                             SnapsToDevicePixels="true">
                         <Grid>
-                            <Rectangle Height="2" VerticalAlignment="Top">
+                            <Rectangle Name="rt" Height="1" VerticalAlignment="Top" Opacity="0">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
                                         <GradientStop Offset="0.815"/>
@@ -151,7 +151,7 @@
                                 </Rectangle.Fill>
                             </Rectangle>
 
-                            <Rectangle>
+                            <!--<Rectangle>
                                 <Rectangle.Fill>
                                     <RadialGradientBrush>
                                         <GradientStop Offset="0.775"/>
@@ -159,13 +159,13 @@
                                         <GradientStop Color="#55FFFFFF"/>
                                     </RadialGradientBrush>
                                 </Rectangle.Fill>
-                            </Rectangle>
+                            </Rectangle>-->
 
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
-                            <Rectangle Height="2" VerticalAlignment="Bottom">
+                            <Rectangle Name="rb" Height="1" VerticalAlignment="Bottom" Opacity="0">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
                                         <GradientStop Offset="0.815"/>
@@ -184,8 +184,24 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SystemControlHighlightListLowBrush}"/>
+                            <!--<Setter Property="Background" TargetName="Bd" Value="{StaticResource SystemControlHighlightListLowBrush}"/>-->
                             <Setter Property="Foreground" Value="{StaticResource SystemControlHighlightAltBaseHighBrush}" />
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="rt" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.3" />
+                                        <DoubleAnimation Storyboard.TargetName="rb" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="rt" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3" />
+                                        <DoubleAnimation Storyboard.TargetName="rb" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="WPFluent.Components.Controls.RevealControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFluent.Components.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="100">
+    <Grid PreviewMouseMove="Rectangle_PreviewMouseMove" MouseMove="Rectangle_MouseMove"
+          MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+        <Rectangle Name="rt" Height="1" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Offset="0.815"/>
+                    <GradientStop/>
+                    <GradientStop Color="#7FFFFFFF" Offset="0.526"/>
+                    <GradientStop Offset="0.293"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="rtTrans" />
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Name="mainLight">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#00FFFFFF" Offset="0.15"/>
+                    <GradientStop Color="#33FFFFFF" Offset="0.5"/>
+                    <GradientStop Color="#00FFFFFF" Offset="0.85"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="mainLightTransform"/>
+            </Rectangle.RenderTransform>
+
+        </Rectangle>
+
+
+        <Rectangle Name="rb" Height="1" VerticalAlignment="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Offset="0.815"/>
+                    <GradientStop/>
+                    <GradientStop Color="#7FFFFFFF" Offset="0.526"/>
+                    <GradientStop Offset="0.293"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="rbTrans" />
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+    </Grid>
+</UserControl>

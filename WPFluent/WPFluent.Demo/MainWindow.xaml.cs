@@ -30,6 +30,7 @@ namespace WPFluent.Demo
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
 
