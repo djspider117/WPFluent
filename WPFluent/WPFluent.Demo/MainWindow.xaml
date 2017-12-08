@@ -132,11 +132,9 @@
                     </Grid>
 
 
-                    <controls:AcrylicContainer 
-                                    Margin="100, 60" BlurContainer="{Binding ElementName=bg}" BlurRadius="20">
+                    <controls:AcrylicContainer Margin="100, 60" BlurContainer="{Binding ElementName=bg}" BlurRadius="20">
                         <Border BorderThickness="1" BorderBrush="#55FFFFFF">
                         </Border>
-
                     </controls:AcrylicContainer>
                 </Grid>
             </TabItem>
