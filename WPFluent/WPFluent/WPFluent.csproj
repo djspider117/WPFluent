@@ -47,6 +47,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Controls\AcrylicContainer.cs" />
+    <Compile Include="Components\Helpers\ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,7 +72,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Controls\" />
     <Folder Include="Components\Templates\" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +82,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Components\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Components\Styles\Acrylic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="WPFluent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>

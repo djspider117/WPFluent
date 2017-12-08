@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:WPFluent.Components.Controls;assembly=WPFluent"
         xmlns:l="clr-namespace:WPFluent.Demo"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -10,6 +11,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/WPFluent;component/Components/Styles/Buttons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/WPFluent;component/Components/Styles/Acrylic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -120,17 +122,25 @@
                     <TextBox AcceptsReturn="True" />
                 </DockPanel>
             </TabItem>
-            <TabItem Header="Custom Brushes">
+            <TabItem Header="Acrylic Brush">
                 <Grid>
-                    <Image Source="landscape.jpg" />
 
-                    <Rectangle Width="96" Height="96" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Rectangle.Fill>
-                            <l:CustomBrush />
-                        </Rectangle.Fill>
-                    </Rectangle>
+                    <Grid Name="bg" VerticalAlignment="Center">
+                        <Image Source="landscape.jpg" />
+                        <TextBlock Text="HELLO " HorizontalAlignment="Center" Margin="-200,0,0,0" FontWeight="Bold" Foreground="Red" FontSize="55" VerticalAlignment="Center"/>
+                        <Button Content="Some Dynamic XAML" VerticalAlignment="Top" HorizontalAlignment="Center" Height="200" VerticalContentAlignment="Top"/>
+                    </Grid>
+
+
+                    <controls:AcrylicContainer 
+                                    Margin="100, 60" BlurContainer="{Binding ElementName=bg}" BlurRadius="20">
+                        <Border BorderThickness="1" BorderBrush="#55FFFFFF">
+                        </Border>
+
+                    </controls:AcrylicContainer>
                 </Grid>
             </TabItem>
         </TabControl>
+
     </Grid>
 </Window>

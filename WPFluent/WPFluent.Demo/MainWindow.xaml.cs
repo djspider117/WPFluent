@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,9 +14,11 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Composition;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFluent.Components.Controls;
 
 namespace WPFluent.Demo
 {
@@ -27,37 +31,8 @@ namespace WPFluent.Demo
         {
             InitializeComponent();
         }
-    }
 
-
-
-    [MarkupExtensionReturnType(typeof(Brush))]
-    public class CustomBrush : MarkupExtension
-    {
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-
-            SolidColorBrush q = new SolidColorBrush();
-            q.Color = Color.FromArgb(55, 66, 77, 88);
-
-            return q;
-        }
 
     }
-
-    [MarkupExtensionReturnType(typeof(Brush))]
-    public class AcrylicBrush : MarkupExtension
-    {
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-
-            SolidColorBrush q = new SolidColorBrush();
-            q.Color = Color.FromArgb(55, 66, 77, 88);
-
-            return q;
-        }
-
-    }
-
 
 }
