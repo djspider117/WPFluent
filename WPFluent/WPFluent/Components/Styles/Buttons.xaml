@@ -302,7 +302,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>
     <Style x:Key="OptionMarkFocusVisual">
@@ -324,7 +324,7 @@
     <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#FF3C77DD"/>
     <SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="#FF212121"/>
     <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121"/>
-    
+
     <Style TargetType="{x:Type CheckBox}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource CheckBoxBackgroundUnchecked}"/>
@@ -348,7 +348,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Border x:Name="checkBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}" 
                                 Background="{TemplateBinding Background}" 
@@ -392,6 +392,102 @@
                         <Trigger Property="IsChecked" Value="{x:Null}">
                             <Setter Property="Opacity" TargetName="optionMark" Value="0"/>
                             <Setter Property="Opacity" TargetName="indeterminateMark" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <SolidColorBrush x:Key="RadioButton.Static.Background" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="RadioButton.Static.Border" Color="#FF707070"/>
+    <SolidColorBrush x:Key="RadioButton.MouseOver.Background" Color="#FFF3F9FF"/>
+    <SolidColorBrush x:Key="RadioButton.MouseOver.Border" Color="#FF5593FF"/>
+    <SolidColorBrush x:Key="RadioButton.MouseOver.Glyph" Color="#FF212121"/>
+    <SolidColorBrush x:Key="RadioButton.Disabled.Background" Color="#FFE6E6E6"/>
+    <SolidColorBrush x:Key="RadioButton.Disabled.Border" Color="#FFBCBCBC"/>
+    <SolidColorBrush x:Key="RadioButton.Disabled.Glyph" Color="#FF707070"/>
+    <SolidColorBrush x:Key="RadioButton.Pressed.Background" Color="#FFD9ECFF"/>
+    <SolidColorBrush x:Key="RadioButton.Pressed.Border" Color="#FF3C77DD"/>
+    <SolidColorBrush x:Key="RadioButton.Pressed.Glyph" Color="#FF212121"/>
+    <SolidColorBrush x:Key="RadioButton.Static.Glyph" Color="#FF212121"/>
+
+    <Style TargetType="{x:Type RadioButton}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}"/>
+        <Setter Property="Padding" Value="8,6,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="MinWidth" Value="120" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid VerticalAlignment="Top" Height="32" >
+                            <Ellipse x:Name="OuterEllipse"
+                                    Width="20"
+                                    Height="20"
+                                    UseLayoutRounding="False"
+                                    Stroke="{StaticResource SystemControlForegroundBaseMediumHighBrush}"
+                                    StrokeThickness="{StaticResource RadioButtonBorderThemeThickness}" />
+                            <Ellipse x:Name="CheckOuterEllipse"
+                                    Width="20"
+                                    Height="20"
+                                    UseLayoutRounding="False"
+                                    Stroke="{StaticResource SystemControlHighlightAltAccentBrush}"
+                                    Fill="{StaticResource SystemControlHighlightTransparentBrush}"
+                                    Opacity="0"
+                                    StrokeThickness="{StaticResource RadioButtonBorderThemeThickness}" />
+                            <Ellipse x:Name="CheckGlyph"
+                                    Width="10"
+                                    Height="10"
+                                    UseLayoutRounding="False"
+                                    Opacity="0"
+                                    Fill="{StaticResource SystemControlHighlightAltBaseMediumHighBrush}" />
+                        </Grid>
+
+                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Stroke" TargetName="OuterEllipse" Value="{StaticResource SystemControlHighlightBaseMediumBrush}" />
+                            <Setter Property="Stroke" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlHighlightBaseMediumBrush}" />
+                            <Setter Property="Fill" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlHighlightTransparentBrush}" />
+                            <Setter Property="Fill" TargetName="CheckGlyph" Value="{StaticResource SystemControlHighlightAltBaseMediumBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Stroke" TargetName="OuterEllipse" Value="{StaticResource SystemControlHighlightBaseMediumBrush}" />
+                            <Setter Property="Stroke" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlHighlightBaseMediumBrush}" />
+                            <Setter Property="Fill" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlHighlightTransparentBrush}" />
+                            <Setter Property="Fill" TargetName="CheckGlyph" Value="{StaticResource SystemControlHighlightAltBaseMediumBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Stroke" TargetName="OuterEllipse" Value="{StaticResource SystemControlDisabledBaseMediumLowBrush}" />
+                            <Setter Property="Stroke" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlDisabledBaseMediumLowBrush}" />
+                            <Setter Property="Fill" TargetName="CheckOuterEllipse" Value="{StaticResource SystemControlDisabledBaseMediumLowBrush}" />
+                            <Setter Property="Fill" TargetName="CheckGlyph" Value="{StaticResource SystemControlDisabledBaseMediumLowBrush}" />
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource SystemControlDisabledBaseMediumLowBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Opacity" TargetName="CheckGlyph" Value="1" />
+                            <Setter Property="Opacity" TargetName="OuterEllipse" Value="0" />
+                            <Setter Property="Opacity" TargetName="CheckOuterEllipse" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter Property="Opacity" TargetName="CheckGlyph" Value="0.56" />
+                            <Setter Property="Opacity" TargetName="OuterEllipse" Value="0" />
+                            <Setter Property="Opacity" TargetName="CheckOuterEllipse" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

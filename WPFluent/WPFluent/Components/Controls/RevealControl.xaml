@@ -18,7 +18,7 @@
                             <TranslateTransform x:Name="maskTransform"/>
                         </TransformGroup>
                     </RadialGradientBrush.RelativeTransform>
-                    <GradientStop Color="White" Offset="0.766"/>
+                    <GradientStop Color="White" Offset="0.466"/>
                     <GradientStop Offset="1"/>
                 </RadialGradientBrush>
             </Border.OpacityMask>
