@@ -133,22 +133,27 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">
-                    <Border x:Name="Bd" 
+                    <Grid>
+                        <Border x:Name="Bd" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             Background="{TemplateBinding Background}" 
                             Padding="{TemplateBinding Padding}" 
                             SnapsToDevicePixels="true">
-                        <Grid>
+                            <Grid>
 
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
-                            <controls:RevealControl x:Name="rv" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0"/>
 
-                        </Grid>
-                    </Border>
+                            </Grid>
+                        </Border>
+                        <controls:RevealControl x:Name="rv" 
+                                                Width="{Binding ActualWidth, ElementName=Bd}"
+                                                Height="{Binding ActualHeight, ElementName=Bd}"/>
+
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

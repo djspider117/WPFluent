@@ -10,7 +10,7 @@
     <Grid>
         <ContentPresenter Content="{Binding Content}" />
 
-        <Border BorderBrush="#55FFFFFF" BorderThickness="1">
+        <Border Name="border" BorderBrush="#55FFFFFF" BorderThickness="0,1,0,1">
             <Border.OpacityMask>
                 <RadialGradientBrush>
                     <RadialGradientBrush.RelativeTransform>
@@ -18,7 +18,7 @@
                             <TranslateTransform x:Name="maskTransform"/>
                         </TransformGroup>
                     </RadialGradientBrush.RelativeTransform>
-                    <GradientStop Color="White" Offset="0.466"/>
+                    <GradientStop Color="White" Offset="0.766"/>
                     <GradientStop Offset="1"/>
                 </RadialGradientBrush>
             </Border.OpacityMask>

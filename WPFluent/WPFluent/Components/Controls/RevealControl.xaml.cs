@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,12 +21,30 @@ namespace WPFluent.Components.Controls
     /// </summary>
     public partial class RevealControl : UserControl
     {
-
-        private bool _hasEntered;
+        private DoubleAnimation _opacityIn;
+        private DoubleAnimation _opacityOut;
+        private Storyboard _sbOpacityIn;
+        private Storyboard _sbOpacityOut;
 
         public RevealControl()
         {
             InitializeComponent();
+
+            _opacityIn = new DoubleAnimation(1, new Duration(TimeSpan.FromMilliseconds(100)));
+            _opacityOut = new DoubleAnimation(0, new Duration(TimeSpan.FromMilliseconds(100)));
+            _sbOpacityIn = new Storyboard();
+            _sbOpacityOut = new Storyboard();
+
+
+            Storyboard.SetTarget(_opacityIn, border);
+            Storyboard.SetTargetProperty(_opacityIn, new PropertyPath(Border.OpacityProperty));
+
+            Storyboard.SetTarget(_opacityOut, border);
+            Storyboard.SetTargetProperty(_opacityOut, new PropertyPath(Border.OpacityProperty));
+
+            _sbOpacityIn.Children.Add(_opacityIn);
+            _sbOpacityOut.Children.Add(_opacityOut);
+
         }
 
         private void Rectangle_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -41,26 +60,17 @@ namespace WPFluent.Components.Controls
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            _hasEntered = true;
-            //rt.Opacity = 1;
-            //rb.Opacity = 1;
-            //mainLight.Opacity = 1;
+            _sbOpacityIn.Begin();
         }
 
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
         {
-            _hasEntered = false;
-            //rt.Opacity = 0;
-            //rb.Opacity = 0;
-            //mainLight.Opacity = 0;
+            _sbOpacityOut.Begin();
 
         }
 
         private void Move(MouseEventArgs e)
         {
-            //if (!_hasEntered)
-                //return;
-
             var pos = e.GetPosition(this);
 
             maskTransform.X = (pos.X - Width / 2) / Width;
