@@ -7,5 +7,6 @@
         <ResourceDictionary Source="Components/Styles/Slider.xaml" />
         <ResourceDictionary Source="Components/Styles/ProgressBar.xaml" />
         <ResourceDictionary Source="Components/Styles/GroupBox.xaml" />
+        <ResourceDictionary Source="Components/Styles/TextBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
