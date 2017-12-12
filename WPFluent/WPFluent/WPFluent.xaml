@@ -5,5 +5,7 @@
         <ResourceDictionary Source="Components/Styles/Acrylic.xaml" />
         <ResourceDictionary Source="Components/Styles/ListView.xaml" />
         <ResourceDictionary Source="Components/Styles/Slider.xaml" />
+        <ResourceDictionary Source="Components/Styles/ProgressBar.xaml" />
+        <ResourceDictionary Source="Components/Styles/GroupBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
